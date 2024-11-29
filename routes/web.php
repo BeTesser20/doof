@@ -15,6 +15,16 @@ Route::get('/hello/{nome}', function($nome) {
     return "Olá {$nome}";
 });
 
+Route::get('/blank', [UsuariosController::class, 'index'])->name('blank');
+
+Route::get('/tables', [UsuariosController::class, 'index'])->name('tables');
+
+Route::get('/calendar', [UsuariosController::class, 'index'])->name('calendar');
+
+Route::get('/forms', [UsuariosController::class, 'index'])->name('forms');
+
+Route::get('/tabs', [UsuariosController::class, 'index'])->name('tabs');
+
 // Route::get('/blank', function() {
 //     return view('blank');
 // });
