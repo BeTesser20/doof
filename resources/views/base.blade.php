@@ -34,11 +34,18 @@
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Início
             </a>
-            <a href="{{ route('blank') }}" class="flex items-center opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-sticky-note mr-3"></i>
-                {{-- <i class="fas fa-utensils"></i> --}}
-                Minhas Receitas
-            </a>
+            @if(Auth::user() && Auth::user()['user'])
+                <a href="{{ route('usuarios') }}" class="flex items-center text-white  py-4 pl-6 nav-item @if (Request::is('usuarios*')) active-nav-link @else opacity-75 hover:opacity-100 @endif">
+                    <i class="fas fa-dragon mr-3"></i>
+                    Minhas Receitas
+                </a>
+            @endif
+            @if(Auth::user() && Auth::user()['admin'])
+                <a href="{{ route('usuarios') }}" class="flex items-center text-white  py-4 pl-6 nav-item @if (Request::is('usuarios*')) active-nav-link @else opacity-75 hover:opacity-100 @endif">
+                    <i class="fas fa-dragon mr-3"></i>
+                    Usuários
+                </a>
+            @endif
         </nav>
     </aside>
 
@@ -62,13 +69,11 @@
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-yellow-950 rounded-lg shadow-lg py-2 mt-16">
-                    <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                        @if(Auth::user())
-                            <a href="{{route('logout')}}" class="block px-4 py-2 account-link hover:text-white">Logout</a>
-                        @else
-                            <a href="{{route('login')}}" class="block px-4 py-2 account-link hover:text-white">Login</a>
-                        @endif
-                    </div>
+                    @if(Auth::user())
+                        <a href="{{route('logout')}}" class="block px-4 py-2 account-link hover:text-white">Logout</a>
+                    @else
+                        <a href="{{route('login')}}" class="block px-4 py-2 account-link hover:text-white">Login</a>
+                    @endif
                 </div>
             </div>
         </header>
@@ -76,39 +81,10 @@
 
         {{-- Cores Fundo: bg-yellow-900, bg-amber-900, bg-orange-900 --}}
 
-        <div class="w-full overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6 text-center">
-                <h1 class="text-5xl font-semibold pb-6">Receitas</h1>
-                <p class="text-3xl pb-6">Seja bem-vindo ao nosso site de receitas</p>
-                <input style="background-color: #f4faec; color: #825f3d;" class="rounded-md p-1.5" type="text" placeholder="Buscar...">
-    
-                <div class="w-full mt-12">
-                    <div class="bg-white overflow-auto">
-                        {{-- <table class="min-w-full bg-white">
-                            <thead class="bg-gray-800 text-white">
-                                <tr>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Last name</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700">
-                                <tr>
-                                    <td class="w-1/3 text-left py-3 px-4">Lian</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                                <tr class="bg-gray-200">
-                                    <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                                    <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                                </tr>
-                            </tbody>
-                        </table> --}}
-                    </div>
+        <div class="w-full overflow-x-hidden border-t flex items-center">
+            <main class="w-full flex-grow p-6 text-center items-center">
+                    <div class="leading-loose">
+                    @yield('conteudo')
                 </div>
             </main>
         </div>

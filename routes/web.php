@@ -19,11 +19,6 @@ Route::get('/blank', [UsuariosController::class, 'index'])->name('blank');
 
 Route::get('/tables', [UsuariosController::class, 'index'])->name('tables');
 
-Route::get('/calendar', [UsuariosController::class, 'index'])->name('calendar');
-
-Route::get('/forms', [UsuariosController::class, 'index'])->name('forms');
-
-Route::get('/tabs', [UsuariosController::class, 'index'])->name('tabs');
 
 // Route::get('/blank', function() {
 //     return view('blank');
@@ -61,21 +56,21 @@ Route::get('/tabs', [UsuariosController::class, 'index'])->name('tabs');
 // Route::put('/animais/editar/{animal}', [AnimaisController::class, 'editarGravar']);
 
 
-// Route::prefix('usuarios')->middleware('auth')->group(function() {
-//     Route::get('/', [UsuariosController::class, 'index'])->name('usuarios');
+Route::prefix('usuarios')->middleware('auth')->group(function() {
+    Route::get('/', [UsuariosController::class, 'index'])->name('usuarios');
 
-//     Route::get('/cadastrar', [UsuariosController::class, 'cadastrar'])->name('usuarios.cadastrar');
+    Route::get('/cadastrar', [UsuariosController::class, 'cadastrar'])->name('usuarios.cadastrar');
 
-//     Route::post('/cadastrar', [UsuariosController::class, 'gravar'])->name('usuarios.gravar');
+    Route::post('/cadastrar', [UsuariosController::class, 'gravar'])->name('usuarios.gravar');
 
-//     Route::get('/apagar/{usuario}', [UsuariosController::class, 'apagar'])->name('usuarios.apagar');
+    Route::get('/apagar/{usuario}', [UsuariosController::class, 'apagar'])->name('usuarios.apagar');
 
-//     Route::delete('/apagar/{usuario}', [UsuariosController::class, 'deletar']);
+    Route::delete('/apagar/{usuario}', [UsuariosController::class, 'deletar']);
 
-//     Route::get('/editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
+    Route::get('/editar/{usuario}', [UsuariosController::class, 'editar'])->name('usuarios.editar');
 
-//     Route::put('/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
-// });
+    Route::put('/editar/{usuario}', [UsuariosController::class, 'editarGravar']);
+});
 
 // // quando acassar a rota via get animais ele vai pegar a funcao  controller e executar o index
 

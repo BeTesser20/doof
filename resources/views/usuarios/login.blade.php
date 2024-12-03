@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form method="post" action="{{ route('login') }}" class="p-10 bg-white rounded shadow-xl">
+    <form method="post" action="{{ route('login') }}" class="p-10 rounded shadow-xl">
         @csrf
         <div class="">
             <label class="block text-sm text-gray-600" for="username">Usuário</label>
