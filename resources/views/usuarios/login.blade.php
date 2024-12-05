@@ -15,18 +15,21 @@
         </div>
     @endif
 
-    <form method="post" action="{{ route('login') }}" class="p-10 rounded shadow-xl">
+    <h1 class="text-5xl font-semibold mb-8">Login</h1>
+
+    <form method="post" action="{{ route('login') }}" class="p-10 rounded-3xl shadow-xl bg-orange-50">
         @csrf
         <div class="">
-            <label class="block text-sm text-gray-600" for="username">Usuário</label>
-            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="username" name="username" type="text" required="" placeholder="Usuário" aria-label="Usuário">
-        </div>
-        <div class="mt-2">
-            <label class="block text-sm text-gray-600" for="password">Senha</label>
-            <input class="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded" id="password" name="password" type="password" required="" placeholder="Senha" aria-label="Senha">
+            <input style="background-color: #3f633e; color: #f4faec;" class="w-full p-3 rounded-full text-center" id="username" name="username" type="text" required="" placeholder="Usuário" aria-label="Usuário">
         </div>
         <div class="mt-6">
-            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Entrar</button>
+            <input style="background-color: #3f633e; color: #f4faec;" class="w-full p-3 rounded-full text-center" id="password" name="password" type="password" required="" placeholder="Senha" aria-label="Senha">
+        </div>
+        <div class="mt-6">
+            <button class="p-4 px-10 text-white font-light tracking-wider bg-yellow-950 rounded-full" type="submit">Entrar</button>
+        </div>
+        <div class="mt-6">
+            <button class="px-4 py-1 text-white font-light tracking-wider bg-yellow-950 rounded-full" type="submit">Entrar com o Google</button>
         </div>
     </form>
 @endsection

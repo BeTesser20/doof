@@ -30,13 +30,12 @@
         </div>
         <nav class="text-white text-base font-semibold pt-3">
             <a href="{{ route('index') }}" class="flex items-center active-nav-link py-4 pl-6 nav-item">
-                {{-- <i class="fas fa-house-user"></i> --}}
-                <i class="fas fa-tachometer-alt mr-3"></i>
+                <i class="fas fa-house-user mr-3"></i>
                 Início
             </a>
             @if(Auth::user() && Auth::user()['user'])
-                <a href="{{ route('usuarios') }}" class="flex items-center text-white  py-4 pl-6 nav-item @if (Request::is('usuarios*')) active-nav-link @else opacity-75 hover:opacity-100 @endif">
-                    <i class="fas fa-dragon mr-3"></i>
+                <a href="{{ route('receitas') }}" class="flex items-center text-white  py-4 pl-6 nav-item @if (Request::is('usuarios*')) active-nav-link @else opacity-75 hover:opacity-100 @endif">
+                    <i class="fas fa-utensils mr-3"></i>
                     Minhas Receitas
                 </a>
             @endif
@@ -84,8 +83,8 @@
         <div class="w-full overflow-x-hidden border-t flex items-center">
             <main class="w-full flex-grow p-6 text-center items-center">
                     <div class="leading-loose">
-                    @yield('conteudo')
-                </div>
+                        @yield('conteudo')
+                    </div>
             </main>
         </div>
         
