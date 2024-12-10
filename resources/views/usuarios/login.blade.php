@@ -29,7 +29,7 @@
             <button class="p-4 px-10 text-white font-light tracking-wider bg-yellow-950 rounded-full" type="submit">Entrar</button>
         </div>
         <div class="mt-6">
-            <button class="px-4 py-1 text-white font-light tracking-wider bg-yellow-950 rounded-full" type="submit">Entrar com o Google</button>
+            <a href="{{ route('auth.google') }}" class="px-4 py-3 text-white font-light tracking-wider bg-yellow-950 rounded-full">Entrar com o Google</a>
         </div>
     </form>
 @endsection
