@@ -26,7 +26,7 @@
 
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6 text-center">
-            <a href="index.html" class="text-5xl font-bold uppercase hover:text-gray-300">Doof</a>
+            <a href="{{ route('index') }}" class="text-5xl font-bold uppercase hover:text-gray-300">Doof</a>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
             <a href="{{ route('index') }}" class="flex items-center active-nav-link py-4 pl-6 nav-item">
